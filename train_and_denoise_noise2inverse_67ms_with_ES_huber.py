@@ -1,12 +1,12 @@
 """
 Train a Noise2Inverse denoiser on your K subset reconstructions, then
-apply it to your full (all-projection) reconstruction.
+apply it to full (all-projection) reconstruction.
 
 Follows Hendriksen et al. 2020 "Noise2Inverse: Self-supervised deep
 convolutional denoising for tomography":
   - X:1 training strategy (input = mean of K-1 sub-reconstructions,
     target = the remaining one)
-  - Adam optimizer, learning rate 1e-3, MSE loss
+  - Adam optimizer, learning rate 1e-3, Original paper used MSE Loss - this was changed to Huber
   - DnCNN by default (see note on network choice below)
 
 Epoch count and patch size follow the micro-CT-specific adaptation of
