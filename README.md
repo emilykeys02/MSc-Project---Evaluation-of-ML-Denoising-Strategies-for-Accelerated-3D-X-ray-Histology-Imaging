@@ -24,26 +24,7 @@ The repository contains the data-preparation, training, evaluation and histology
 | Voxel size | 16.4 µm (isotropic) |
 | Scanner software | Nikon CT Pro (reconstruction) |
 
-The scan data is not included in this repository.
-
-## Pipeline
-
-```mermaid
-flowchart TD
-    raw[Raw projections] --> lin[linearise_projections.py]
-    lin --> pairs[make_training_pairs.py]
-    pairs --> projden[Projection-domain denoising<br/>trained outside this repo]
-    lin --> projden
-    projden --> delin[delinearise_projections.py]
-    delin --> recon[Reconstruction in CT Pro]
-    raw --> recon
-    recon --> norm[normalise_volumes.py]
-    norm --> recden[Reconstruction-domain denoising<br/>Noise2Inverse and others]
-    recon --> recden
-    recden --> eval[psnr.py and ssim_3d.py]
-    recon --> eval
-    eval --> hist[run_histology_slice.py]
-```
+The scan data is not included in this repository. If required please reach out to O.Katsamenis@soton.ac.uk.
 
 ## Scripts
 
